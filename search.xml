@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>bilibili安全挑战赛（1-5）</title>
+      <link href="2020/10/24/bilibili-CTF(1-5)/"/>
+      <url>2020/10/24/bilibili-CTF(1-5)/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js"></script><p><a href="https://www.bilibili.com/blackboard/activity-20201024.html"><strong>bilibili安全挑战赛</strong></a> </p><p><strong>关于网络安全方面的学习，入门尝试，浏览器为Firefox。</strong></p><p><strong>线上比赛一般以解题模式（Jeopardy）为主。</strong></p><h2 id="第一题：页面的背后是什么？"><a href="#第一题：页面的背后是什么？" class="headerlink" title="第一题：页面的背后是什么？"></a>第一题：页面的背后是什么？</h2><p>&emsp;<a href="http://45.113.201.36/index.html">http://45.113.201.36/index.html</a></p><p><img src="https://cdn.jsdelivr.net/gh/s1003063367/cdn/bictf/bictf-11.jpg" alt="Audits - Lighthouse" loading="lazy"></p><p>  &emsp;&emsp;  第一题对网页元素审查即可。</p><p><img src="https://cdn.jsdelivr.net/gh/s1003063367/cdn/bictf/bictf-12.jpg" alt="Audits - Lighthouse" loading="lazy"></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id="第二题：-真正的秘密只有特殊的设备才能看到"><a href="#第二题：-真正的秘密只有特殊的设备才能看到" class="headerlink" title="第二题： 真正的秘密只有特殊的设备才能看到"></a>第二题： 真正的秘密只有特殊的设备才能看到</h2><p>&emsp;<a href="http://45.113.201.36/index.html">http://45.113.201.36/index.html</a></p><p><img src="https://cdn.jsdelivr.net/gh/s1003063367/cdn/bictf/bictf-11.jpg" alt="Audits - Lighthouse" loading="lazy"><em>需要使用bilibili Security Browser浏览器访问～</em></p><p> &emsp;&emsp;   根据提供的信息，可知用户代理名称bilibili Security Browser</p><p><img src="https://cdn.jsdelivr.net/gh/s1003063367/cdn/bictf/BICTF-21.jpg" alt="Audits - Lighthouse" loading="lazy"></p><p>  &emsp;&emsp;  编辑User-Agent重发文件名为2的请求，即可得到data。</p><p><img src="https://cdn.jsdelivr.net/gh/s1003063367/cdn/bictf/bictf-22.jpg" alt="Audits - Lighthouse" loading="lazy"></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id="第三题：-密码是啥？"><a href="#第三题：-密码是啥？" class="headerlink" title="第三题： 密码是啥？"></a>第三题： 密码是啥？</h2><p>&emsp;<a href="http://45.113.201.36/login.html">http://45.113.201.36/login.html</a></p><p><img src="https://cdn.jsdelivr.net/gh/s1003063367/cdn/bictf/bictf-31.jpg" alt="Audits - Lighthouse" loading="lazy"></p><p> &emsp;&emsp;   账号：admin    密码：bilibili</p><p> &emsp;&emsp;   送分题 (゜-゜)つロ 干杯~</p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id="第四题：-对不起，权限不足"><a href="#第四题：-对不起，权限不足" class="headerlink" title="第四题： 对不起，权限不足"></a>第四题： 对不起，权限不足</h2><p>&emsp;<a href="http://45.113.201.36/superadmin.html">http://45.113.201.36/superadmin.html</a></p><p>&emsp;&emsp;    元素审查得到信息</p><p><img src="https://cdn.jsdelivr.net/gh/s1003063367/cdn/bictf/bictf-41.jpg" alt="Audits - Lighthouse" loading="lazy"></p><table><tr><td bgcolor=#DCDCDC>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;有些秘密只有超级管理员才能看见哦~</td></tr></table><p>&emsp;&emsp;    编辑superadmin文件，在cookie一行找到了md5加密的role：ee11cbb19052e40b07aac0ca060c23ee，解密后为user。</p><p>&emsp;    说明要将超级管理员加密后对应修改，首先尝试的是superadmin，但编辑重发后并没有得到data，又试了试计算机的超级&amp;emsp管理员     Administrator，得到响应。</p><p><img src="https://cdn.jsdelivr.net/gh/s1003063367/cdn/bictf/bictf-42.jpg" alt="Audits - Lighthouse" loading="lazy"></p><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><h2 id="第五题：-别人的秘密"><a href="#第五题：-别人的秘密" class="headerlink" title="第五题： 别人的秘密"></a>第五题： 别人的秘密</h2><p>&emsp;<a href="http://45.113.201.36/user.html">http://45.113.201.36/user.html</a></p><p><img src="https://cdn.jsdelivr.net/gh/s1003063367/cdn/bictf/bictf-51.jpg" alt="Audits - Lighthouse" loading="lazy"></p><p>&emsp;&emsp;只提供了一条有效文件，并且给出uid=100336889这一参数。</p><p>&emsp;&emsp;分析代码后没有得出有效信息，需要暴力破解。</p><p><img src="https://cdn.jsdelivr.net/gh/s1003063367/cdn/bictf/bictf-52.jpg" alt="Audits - Lighthouse" loading="lazy"></p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> requests</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line">uid = <span class="number">100336889</span></span><br><span class="line">headers = &#123;</span><br><span class="line">    <span class="string">&quot;Cookie&quot;</span>: <span class="string">&quot;对应填入&quot;</span>,</span><br><span class="line">    <span class="string">&quot;Referer&quot;</span>: <span class="string">&quot;http://45.113.201.36/user.html&quot;</span>,</span><br><span class="line">    <span class="string">&quot;User-Agent&quot;</span>:<span class="string">&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/85.0.4183.102 Safari/537.36&quot;</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    resp = requests.get(<span class="string">&quot;http://45.113.201.36/api/ctf/5?uid=&quot;</span>+<span class="built_in">str</span>(uid),headers=headers)</span><br><span class="line">    print(uid)</span><br><span class="line">    print(resp.text)</span><br><span class="line">    jsonobj = json.loads(resp.text)</span><br><span class="line">    <span class="keyword">if</span> jsonobj[<span class="string">&#x27;code&#x27;</span>] == <span class="number">200</span>:</span><br><span class="line">        print(<span class="string">&quot;找到你了！&quot;</span>)</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        uid += <span class="number">1</span></span><br><span class="line">        <span class="keyword">continue</span></span><br></pre></td></tr></table></figure><p>&emsp;&emsp;循环几十次后便可得到flag。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 网络安全技术 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> python </tag>
+            
+            <tag> CTF </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>字体背景色</title>
+      <link href="2020/10/23/%E8%83%8C%E6%99%AF%E8%89%B2/"/>
+      <url>2020/10/23/%E8%83%8C%E6%99%AF%E8%89%B2/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js"></script>]]></content>
+      
+      
+      <categories>
+          
+          <category> 资料 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 工具 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>烟雨行舟</title>
+      <link href="2020/10/21/music/"/>
+      <url>2020/10/21/music/</url>
+      
+        <content type="html"><![CDATA[<link rel="stylesheet" class="aplayer-secondary-style-marker" href="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.css"><script src="https://cdn.jsdelivr.net/npm/aplayer@latest/dist/APlayer.min.js" class="aplayer-secondary-script-marker"></script><script class="meting-secondary-script-marker" src="https://cdn.jsdelivr.net/npm/meting@1/dist/Meting.min.js"></script>    <div id="aplayer-rfCDQYsU" class="aplayer aplayer-tag-marker meting-tag-marker"         data-id="32922246" data-server="netease" data-type="song" data-mode="circulation" data-autoplay="false" data-mutex="true" data-listmaxheight="340px" data-preload="auto" data-theme="#C20C0C"    ></div><p><img src="https://cdn.jsdelivr.net/gh/s1003063367/cdn/images/cover-yyxz.jpg" alt="Audits - Lighthouse" loading="lazy"></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+</search>
